@@ -1,48 +1,66 @@
-# **Thema:** Erstellen einer ToDo-Applikation mit Markdown, Git, GitHub und Docker
+# Thema: Installation des Projekts
 
-In dieser Abschlussaufgabe werden alle erlernten Fähigkeiten in den Bereichen **Markdown**, **Git**, **GitHub** und **Docker** kombiniert. Die Aufgabe besteht darin, eine ToDo-Applikation zu erstellen und diese in einem Docker-Container bereitzustellen.
+## Hier findest du eine Anleitung fuer die Schritte. Ich hoffe es kann dir helfen.
 
-### **Aufgabenstellung:**
+**Repository klonen**
+```bash
+git clone https://github.com/benutzername/repositoryname.git
+```
 
-1. **GitHub-Fork erstellen:**
-   - Erstelle einen **Fork** des folgenden GitHub-Repositories: [docker-nodejs-sample](https://github.com/ICT-BLJ/docker-nodejs-sample).
-   - Clone deinen Fork lokal auf deinen Computer.
+**In das Verzeichnis wechseln**
+```bash
+cd repository
+```
 
-2. **Erstellen einer README-Datei in Markdown:**
-   - Erstelle eine **README.md** Datei im Root-Verzeichnis des Projekts.
-   - Die README soll alle Schritte zur **Installation des Projekts** enthalten. Dazu gehören:
-     - Klonen des Repositories
-     - Installation der notwendigen Pakete
-     - Docker-Konfiguration und -Installation
-     - Starten der Applikation in einem Docker-Container
-   - Nutze [Markdown](https://www.markdownguide.org/cheat-sheet/) für die Struktur und Formatierung der Datei.
+**Installation der notwendigen Pakete und Docker-Konfiguration und -Installation**
+## Du musst Docker herunterladen. Dafuer gehe auf: https://docs.docker.com/engine/install/
+## Schau was fuer ein Prozessor du hast und waehle das richige Docker Version aus und klicke auf die Hyperlink, um die Datei herunterzuladen. 
+## Oeffne die Installer und klick immer auf weiter
+## Nun sollte es funktionieren, falls es nicht funktioniert, sollst du cmd.exe als Administrator oeffnen und folgende Code ausfuehren
+```
+wsl --update
+```
+## Jetzt sollte es gehen, da die wsl nicht mehr "outdated" ist.
 
-3. **Dokumentation der Vorgehensweise:**
-   - Verfasse eine vollständige **Dokumentation in Word**, in der die Arbeitsschritte beschrieben werden. Diese Schritte sind:
-     - Klonen des Repositories
-     - Einrichtung der Entwicklungsumgebung
-     - Erstellung der README.md
-     - Verwendung von Git (Commit, Push)
-     - Erstellung und Nutzung von Docker-Containern
-   - Verwende die während des Office-Kurses erarbeiteten Kenntnisse für das Erstellen dieses Dokuments.
+**Starten der Applikation in einem Docker-Container**
+## Stelle sicher, dass Docker installiert ist.
+```bash
+docker --version
+```
 
-4. **Dockerize das Node.js-Projekt:**
-   - Verfolge die Anleitung unter [docs.docker.com](https://docs.docker.com/guides/language/nodejs/containerize/) ab dem Schritt **"Initialize Docker inits"**.
-   - Dein Ziel ist es, das Projekt in einem Docker-Container lauffähig zu machen, sodass am Ende eine **ToDo-Applikation** in einem Docker-Container bereitsteht.
+## Oefffne das Terminal und erstelle einen neuen Ordner für dein Projekt:
+```cmd
+mkdir mein-node-app
+cd mein-node-app
+```
+## Nun gib das Code ein
+```cmd
+echo > Docker
+```
+## So kannst du diese Datei oeffnen
+```
+code Dockerfile
+```
+## Nun musst du das einfuegen
+```VS Code
+FROM node:14
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 3000
+CMD ["node", "app.js"]
+```
+## Jetzt kannst du das speichern und diese Code verwenden
+```bash
+docker build -t mein-node-app .
+docker run -p 3000:3000 mein-node-app
+```
 
-5. **Git-Workflows:**
-   - Arbeite mit **Git**, um Änderungen regelmäßig zu committen und auf GitHub zu pushen.
-   - Verwende sinnvolle Commit-Nachrichten, um deinen Fortschritt zu dokumentieren.
-   - Stelle sicher, dass dein finaler Stand auf GitHub vorhanden ist.
+## Jetzt sollte deine Anwendung in einem Docker-Container laufen.
 
-6. **Abgabe:**
-   - **Dokumentation:** Lade die erstellte Word-Dokumentation (inkl. Screenshots und Beschreibung der Schritte) in dein Repository hoch.
-   - **GitHub-Link:** Stelle den Link zu deinem GitHub-Repository bereit, das den finalen Stand des Projekts enthält.
 
-### **Ziele der Aufgabe:**
-- Anwendung und Vertiefung von Git und GitHub.
-- Verfassen einer strukturierten Anleitung mit Markdown.
-- Containerisieren einer Node.js-Anwendung mit Docker.
-- Dokumentation des gesamten Prozesses in einem Word-Dokument.
-  
-Viel Erfolg bei der Umsetzung!
+
+
+
+
