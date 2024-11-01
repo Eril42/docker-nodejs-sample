@@ -28,7 +28,7 @@ wsl --update
 docker --version
 ```
 
-## Oefffne das Terminal und erstelle einen neuen Ordner für dein Projekt:
+## Oeffne das Terminal und erstelle einen neuen Ordner für dein Projekt:
 ```cmd
 mkdir mein-node-app
 cd mein-node-app
